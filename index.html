@@ -201,7 +201,7 @@ background-color: #444;
     <div id="password-screen">
         <p>Please follow the steps:</p>
         <ul>
-            <li>Go to Google and sign in to the Google account that I provided. This gives you permission to view the videos.</li>
+            <li>Go to Google and sign in to the Google account that I provided. This gives you permission to view the photos and videos.</li>
             <li>Return to this website and enter the password that I provided.</li>
             <li>Browse through the website.</li>
         </ul>
@@ -225,7 +225,9 @@ background-color: #444;
         <!-- Default Main Section -->
         <div id="default-section" class="main-section active">
             <h2>Welcome to the Cabrera/Marcial Vault</h2>
-            <p>As an extension of the love of my dear mother, this is my gift to you all. This website is a collection of photos and videos of the Cabrera and Marcial families. Click on the links above to explore.</p>
+            <p>As an extension of the love of my dear mother, this is my gift to you all. This website is a collection of photos and videos of the Cabrera and Marcial families. Click on the links above to explore.
+<br><br>
+To ensure privacy, this website requires a password for access. Photos are then hosted on Google Drive and not accessible to the public. You must be signed into the provided Google account to view them. Similarly, videos are hosted on YouTube and not accessible to the public. You must be signed into the provided Google account to view them. Some media require additional an additional pass, which have been given to the respective families. If you wish to view the media, please ask the family for the password.</p>
         </div>
 
         <!-- Cabrera Section -->
@@ -255,7 +257,8 @@ background-color: #444;
             </div>
             <!-- Video 2 -->
             <div id="video2" class="media-container">
-                <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="Damiana Video 2"></iframe>
+                <iframe width="auto" height="auto" src="https://www.youtube.com/embed/054MkScS_o4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
             </div>
             <!-- Video 3 -->
             <div id="video3" class="media-container">
@@ -267,6 +270,13 @@ background-color: #444;
             </div>
             <!-- Images -->
             <div id="images" class="media-container">
+<iframe src="https://drive.google.com/file/d/1Ip2sPNmwaKnZ1ZpJV8zgEN9vpRGnrOw_/preview" width="600" height="400" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://drive.google.com/file/d/1Ip2sPNmwaKnZ1ZpJV8zgEN9vpRGnrOw_/preview" width="600" height="400" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://drive.google.com/file/d/1Ip2sPNmwaKnZ1ZpJV8zgEN9vpRGnrOw_/preview" width="600" height="400" frameborder="0" allowfullscreen></iframe>
+
+
+
+
                 <img src="image1.jpg" alt="Damiana Image 1">
                 <img src="image2.jpg" alt="Damiana Image 2">
                 <img src="image3.jpg" alt="Damiana Image 3">
@@ -294,20 +304,22 @@ background-color: #444;
 
     <script>
         // Password verification function
-        function checkPassword() {
-            const password = document.getElementById("password-input").value;
-            const correctPassword = "yourpassword"; // Set your password here
-            if (password === correctPassword) {
-                // Hide the password screen and show main content
-                document.getElementById("password-screen").style.display = 'none';
-                document.getElementById("main-content").style.display = 'block';
+function checkPassword() {
+    const password = document.getElementById("password-input").value;
+    const encodedPassword = "ZmFtaWx5aXNsb3Zl"; // Base64 encoded version of "familyislove"
+    const decodedPassword = atob(encodedPassword); // Decode the Base64 password
 
-                // Scroll to the top of the page to reveal the first section
-                window.scrollTo(0, 0);
-            } else {
-                alert("Incorrect password. Please try again.");
-            }
-        }
+    if (password === decodedPassword) {
+        // Hide the password screen and show main content
+        document.getElementById("password-screen").style.display = 'none';
+        document.getElementById("main-content").style.display = 'block';
+
+        // Scroll to the top of the page to reveal the first section
+        window.scrollTo(0, 0);
+    } else {
+        alert("Incorrect password. Please try again.");
+    }
+}
 
         // Function to show specific section
         function showSection(sectionId) {
@@ -339,7 +351,7 @@ const sectionPasswords = {
 
 // Function to check section password
 function checkSectionPassword(sectionId) {
-    const userPassword = prompt("Please enter the password for this section:");
+    const userPassword = prompt("Please enter the password to view:");
     if (userPassword === sectionPasswords[sectionId]) {
         showSection(sectionId); // Show the section if password is correct
     } else {
