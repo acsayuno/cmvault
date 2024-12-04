@@ -78,13 +78,16 @@ background-color: #444;
             padding: 0 1rem;
         }
 
-       /* Navigation Bar */
+       
+
+
+/* Navigation Bar */
 nav {
     background-color: #444;
-    padding: 1rem 2rem;
-    display: block;
-    justify-content: space-between;
-    align-items: center;
+    padding: 1rem 1rem;
+    display: flex;
+    flex-direction: column; /* Stack logo and buttons vertically */
+    align-items: center; /* Center items horizontally */
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     position: sticky;
@@ -92,25 +95,23 @@ nav {
     z-index: 1000;
 }
 
+/* Logo Style */
 nav .logo {
     font-size: 1.8rem;
     font-weight: bold;
     color: #fff;
     letter-spacing: 2px;
     cursor: pointer;
-    transition: color 0.3s ease, transform 0.3s ease;
+    margin-bottom: 1rem; /* Space between the logo and buttons */
 }
 
-nav .logo:hover {
-    color: #ffa500;
-    transform: scale(1.05);
-}
-
+/* Navigation Buttons */
 nav ul {
     list-style: none;
-    display: flex;
-    gap: 2rem;
+    display: flex; /* Arrange buttons side by side */
+    gap: 1rem; /* Space between buttons */
     margin: 0;
+    padding: 0;
 }
 
 nav ul li {
@@ -118,25 +119,26 @@ nav ul li {
 }
 
 nav .nav-btn {
-    background-color: #444;
-    color: #fff;
+    background-color: #ffa500;
+    color: white;
     font-size: 1rem;
     font-weight: 500;
     letter-spacing: 1px;
-    padding: 0.2rem 0.2rem;
-    border: none; /* Removed the white border */
+    padding: 0.5rem 1rem;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    text-align: center;
-    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
-
+/* Hover effect for buttons */
 nav .nav-btn:hover {
-    background-color: #ffa500;
+    background-color: #ff8c00;
     color: #333;
+    transform: scale(1.05);
 }
+
+
 
         /* Main Section Styles */
         .main-section {
@@ -233,6 +235,7 @@ nav .nav-btn:hover {
         <li><button class="nav-btn" onclick="showSection('marcial')">Marcial</button></li>
     </ul>
 </nav>
+
 
         <!-- Default Main Section -->
         <div id="default-section" class="main-section active">
