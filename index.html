@@ -17,6 +17,7 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            padding: 0; /* Ensure no extra padding */
         }
 
         /* Password Screen Styles */
@@ -29,7 +30,6 @@
             color: #fff;
             flex-direction: column;
             text-align: center;
-            padding: 0 1rem;
         }
 
         #password-screen p {
@@ -47,8 +47,6 @@
             margin-right: 10px;
             border: none;
             border-radius: 5px;
-            width: 100%;
-            max-width: 250px;
         }
 
         #password-screen button {
@@ -59,8 +57,6 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            width: 100%;
-            max-width: 250px;
         }
 
         #password-screen button:hover {
@@ -70,10 +66,8 @@
         /* Flex to make the input and button sit side by side */
         .password-container {
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            width: 100%;
         }
 
         /* Main Content Styles (Hidden Initially) */
@@ -93,7 +87,6 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            flex-wrap: wrap;
         }
 
         nav .logo {
@@ -144,6 +137,27 @@
             display: block; /* Show active section */
         }
 
+        /* For Scroll Issue Fix on Mobile */
+        @media (max-width: 768px) {
+            body {
+                font-size: 1rem;
+            }
+
+            .main-section {
+                padding: 1.5rem;
+                margin: 1rem 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav .logo {
+                font-size: 1.5rem;
+            }
+        }
+
         /* Footer */
         footer {
             background-color: #333;
@@ -174,61 +188,6 @@
             width: 100%;
             height: 315px;
             border: none;
-        }
-
-        /* Media Queries for Mobile */
-        @media (max-width: 768px) {
-            body {
-                font-size: 1rem;
-            }
-
-            nav {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 1rem;
-            }
-
-            nav ul {
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
-                width: 100%;
-            }
-
-            .logo {
-                font-size: 1.6rem;
-                margin-bottom: 1rem;
-            }
-
-            .password-container input,
-            .password-container button {
-                max-width: 100%;
-                width: 100%;
-            }
-
-            .main-section {
-                padding: 1.5rem;
-                margin: 1rem 0;
-            }
-        }
-
-        /* For small devices like phones in portrait mode */
-        @media (max-width: 480px) {
-            nav .logo {
-                font-size: 1.4rem;
-            }
-
-            nav ul li a {
-                font-size: 0.9rem;
-            }
-
-            .main-section {
-                padding: 1rem;
-            }
-
-            footer {
-                font-size: 0.8rem;
-            }
         }
     </style>
 </head>
@@ -308,14 +267,7 @@
                 <img src="image2.jpg" alt="Damiana Image 2">
                 <img src="image3.jpg" alt="Damiana Image 3">
                 <img src="image4.jpg" alt="Damiana Image 4">
-                <img src="image5.jpg" alt="Damiana Image 5">
             </div>
-        </div>
-
-        <!-- Abelardo Section -->
-        <div id="abelardo-section" class="main-section">
-            <h2>Welcome to Abelardo</h2>
-            <p>This section contains information and cherished memories of Abelardo from the Cabrera family.</p>
         </div>
 
         <!-- Marcial Section -->
@@ -336,27 +288,38 @@
             const password = document.getElementById("password-input").value;
             const correctPassword = "yourpassword"; // Set your password here
             if (password === correctPassword) {
+                // Hide the password screen and show main content
                 document.getElementById("password-screen").style.display = 'none';
                 document.getElementById("main-content").style.display = 'block';
+
+                // Scroll to the top of the page to reveal the first section
+                window.scrollTo(0, 0);
             } else {
                 alert("Incorrect password. Please try again.");
             }
         }
 
-        // Function to show different sections of the website
-        function showSection(section) {
+        // Function to show specific section
+        function showSection(sectionId) {
+            // Hide all sections
             const sections = document.querySelectorAll('.main-section');
-            sections.forEach(s => s.classList.remove('active'));
-            document.getElementById(section + '-section').classList.add('active');
+            sections.forEach(section => section.classList.remove('active'));
+
+            // Show the selected section
+            const selectedSection = document.getElementById(sectionId + '-section');
+            selectedSection.classList.add('active');
         }
 
         // Function to show media (video or images)
         function showMedia(mediaId) {
-            const mediaContents = document.querySelectorAll('.media-container');
-            mediaContents.forEach(content => content.style.display = 'none');
-            document.getElementById(mediaId).style.display = 'block';
+            // Hide all media containers
+            const mediaContainers = document.querySelectorAll('.media-container');
+            mediaContainers.forEach(container => container.style.display = 'none');
+
+            // Show the selected media container
+            const selectedMedia = document.getElementById(mediaId);
+            selectedMedia.style.display = 'block';
         }
     </script>
-
 </body>
 </html>
