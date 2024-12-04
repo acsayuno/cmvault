@@ -78,53 +78,64 @@ background-color: #444;
             padding: 0 1rem;
         }
 
-        /* Navigation Bar */
-        nav {
-            background-color: #444;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+       /* Navigation Bar */
+nav {
+    background-color: #444;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
-        nav .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #fff;
-            letter-spacing: 2px;
-            cursor: pointer;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
+nav .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
 
-        nav .logo:hover {
-            color: #ffa500;
-            transform: scale(1.05);
-        }
+nav .logo:hover {
+    color: #ffa500;
+    transform: scale(1.05);
+}
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-            margin: 0;
-        }
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+}
 
-        nav ul li a {
-            text-decoration: none;
-            color: #fff;
-            font-size: 1rem;
-            font-weight: 500;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
-        }
+nav ul li {
+    display: inline-block;
+}
 
-        nav ul li a:hover {
-            color: #ffa500;
-        }
+nav .nav-btn {
+    background-color: #444;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 0.8rem 1.5rem;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center;
+    display: inline-block;
+}
+
+nav .nav-btn:hover {
+    background-color: #ffa500;
+    color: #333;
+}
 
         /* Main Section Styles */
         .main-section {
@@ -214,18 +225,18 @@ background-color: #444;
     <!-- Main Content (Hidden Initially) -->
     <div id="main-content">
         <!-- Navigation Bar -->
-        <nav>
-            <div class="logo" onclick="window.location.href='index.html'">Cabrera/Marcial Vault</div>
-            <ul>
-                <li><a href="#" onclick="showSection('cabrera')">Cabrera</a></li>
-                <li><a href="#" onclick="showSection('marcial')">Marcial</a></li>
-            </ul>
-        </nav>
+<nav>
+    <div class="logo" onclick="window.location.href='index.html'">Cabrera/Marcial Vaults</div>
+    <ul>
+        <li><button class="nav-btn" onclick="showSection('cabrera')">Cabrera</button></li>
+        <li><button class="nav-btn" onclick="showSection('marcial')">Marcial</button></li>
+    </ul>
+</nav>
 
         <!-- Default Main Section -->
         <div id="default-section" class="main-section active">
             <h2>Welcome to the Cabrera/Marcial Vaults</h2>
-            <p>As an extension of the love of my dear mother, this is my gift to you all. This website is a collection of photos and videos of the Cabrera and Marcial families. Click on the links above to explore.
+            <p>As an extension of my dear mother's love, this gift is for all of you—a collection of photos and videos from the Cabrera and Marcial families. Click the links above to explore.
 <br><br>
 To ensure privacy, this website requires a password for entry. Photos are then hosted on Google Drive and not accessible to the public. You must be signed into the provided Google account to view them. Similarly, videos are hosted on YouTube and not accessible to the public. You must be signed into the provided Google account to view them. Some media require an additional password, which has been given to the respective families. If you wish to view the media, please ask the family for the password.</p>
         </div>
