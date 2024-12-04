@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabrera/Marcial Vault</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            font-size: 1.1rem;
+        }
+
+        /* Password Screen Styles */
+        #password-screen {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #333;
+            color: #fff;
+        }
+
+        #password-screen input {
+            padding: 1rem;
+            font-size: 1rem;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #password-screen button {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            background-color: #ffa500;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #password-screen button:hover {
+            background-color: #ff8c00;
+        }
+
+        /* The actual content */
+        #main-content {
+            display: none;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #333;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fff;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav .logo:hover {
+            color: #ffa500;
+            transform: scale(1.05);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ffa500;
+        }
+
+        /* Media Buttons */
+        .media-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 5rem 2rem;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .media-buttons button {
+            padding: 1rem 2.5rem;
+            background-color: #ffa500;
+            color: #fff;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .media-buttons button:hover {
+            background-color: #ff8c00;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Media Content */
+        .media-content {
+            display: none;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .media-content img {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        iframe {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 0.9rem;
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .media-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .media-content {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Password Screen -->
+    <div id="password-screen">
+        <input type="password" id="password-input" placeholder="Enter password">
+        <button onclick="checkPassword()">Submit</button>
+    </div>
+
+    <!-- Main Content (Hidden Initially) -->
+    <div id="main-content">
+        <nav>
+            <div class="logo" onclick="window.location.href='https://www.example.com'">Cabrera/Marcial Vault</div>
+            <ul>
+                <li><a href="#about">Cabrera</a></li>
+                <li><a href="#contact">Marcial</a></li>
+            </ul>
+        </nav>
+
+        <!-- Media Buttons -->
+        <div class="media-buttons">
+            <button onclick="showMedia('video1')">Video 1</button>
+            <button onclick="showMedia('video2')">Video 2</button>
+            <button onclick="showMedia('video3')">Video 3</button>
+            <button onclick="showMedia('images')">Images</button>
+        </div>
+
+        <!-- Media Content -->
+        <div id="video1" class="media-content">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div id="video2" class="media-content">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div id="video3" class="media-content">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div id="images" class="media-content">
+            <img src="https://via.placeholder.com/300" alt="Image 1" />
+            <img src="https://wikimon.net/images/b/bd/Aegiochusmon.jpg" alt="Image 2" />
+            <img src="https://wikimon.net/images/b/bd/Aegiochusmon.jpg" alt="Image 3" />
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Cabrera/Marcial Vault. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Password verification function
+        function checkPassword() {
+            const password = document.getElementById("password-input").value;
+            const correctPassword = "yourpassword"; // Set your password here
+            if (password === correctPassword) {
+                document.getElementById("password-screen").style.display = 'none';
+                document.getElementById("main-content").style.display = 'block';
+            } else {
+                alert("Incorrect password. Please try again.");
+            }
+        }
+
+        function showMedia(mediaType) {
+            let mediaContents = document.querySelectorAll('.media-content');
+            mediaContents.forEach(content => content.style.display = 'none');
+
+            let selectedMedia = document.getElementById(mediaType);
+            if (selectedMedia) {
+                selectedMedia.style.display = 'flex';
+            }
+        }
+    </script>
+</body>
+</html>
