@@ -90,6 +90,7 @@ nav {
     position: sticky;
     top: 0;
     z-index: 1000;
+    flex-wrap: wrap; /* Allow buttons to wrap */
 }
 
 nav .logo {
@@ -130,6 +131,7 @@ nav .nav-btn {
     transition: background-color 0.3s ease, color 0.3s ease;
     text-align: center;
     display: inline-block;
+       box-sizing: border-box; /* Prevent overflow */
 }
 
 nav .nav-btn:hover {
@@ -212,7 +214,7 @@ nav .nav-btn:hover {
     <div id="password-screen">
         <p>Please follow the steps:</p>
         <ul>
-            <li>Go to Google and sign in to the Google account that I provided. This grants you permission to view the photos and videos.</li>
+            <li>Go to Google and sign in to the Google account I provided. This will grant you permission to view the photos and videos.</li>
             <li>Return to this website and enter the password that I provided.</li>
             <li>Browse through the website.</li>
         </ul>
