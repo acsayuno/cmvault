@@ -229,7 +229,7 @@
             <p>This section contains information and memories related to the Cabrera family.</p>
             <ul>
                 <li><a href="#" onclick="showSection('damiana')">Damiana</a></li>
-                <li><a href="#" onclick="showSection('abelardo')">Abelardo</a></li>
+                <li><a href="#" onclick="checkSectionPassword('abelardo')">Abelardo</a></li>
             </ul>
         </div>
 
@@ -267,6 +267,12 @@
                 <img src="image3.jpg" alt="Damiana Image 3">
                 <img src="image4.jpg" alt="Damiana Image 4">
             </div>
+        </div>
+
+        <!-- Marcial Section -->
+        <div id="abelardo-section" class="main-section">
+            <h2>Welcome to Abelardo</h2>
+            <p>This section contains information and memories related to the Abelardo family.</p>
         </div>
 
         <!-- Marcial Section -->
@@ -319,6 +325,23 @@
             const selectedMedia = document.getElementById(mediaId);
             selectedMedia.style.display = 'block';
         }
+
+
+// Password for specific sections
+const sectionPasswords = {
+    abelardo: "abelardo123" // Set your password for Abelardo here
+};
+
+// Function to check section password
+function checkSectionPassword(sectionId) {
+    const userPassword = prompt("Please enter the password for this section:");
+    if (userPassword === sectionPasswords[sectionId]) {
+        showSection(sectionId); // Show the section if password is correct
+    } else {
+        alert("Incorrect password. Access denied.");
+    }
+}
+
     </script>
 </body>
 </html>
